@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cart Detail</title>
+</head>
+<body>
+    <h1>Cart Detail</h1>
+    <ul>
+        {% for item in cart_items %}
+            <li>
+                <h2>{{ item.product.name }}</h2>
+                <p>Quantity: {{ item.quantity }}</p>
+                <p>Price: {{ item.product.price }}</p>
+                <a href="{% url 'remove_from_cart' product_id=item.product.id %}">Remove from Cart</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <h3>Total Price: {{ total_price }}</h3>
+</body>
+</html>
+
